@@ -21,4 +21,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
-          script: whoami
+          script: |
+            cd /home/ubuntu/Project/ci-cd-test
+            git pull
+            npm install
+            num run build
+            npm run start
